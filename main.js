@@ -1,8 +1,11 @@
 const quizData = [];
 for (let i = 1; i <= 20; i++) {
-  quizData.push({ question: `${i}^2`, answer: (i * i).toString() });
+  const square = i * i;
+  quizData.push({
+    question: `\\(\\sqrt{${square}}\\)`,
+    answer: i.toString()
+  });
 }
-
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbzaEbohb33NPS8iYg8YmCB46xcd99OwvjuV28EUXt9elnQ7DTzaFJkcmF8r0ez_BIXEZQ/exec';
 
 let currentQuestionIndex = 0;
@@ -37,7 +40,7 @@ function showQuestion() {
   }
 
   const q = quizData[currentQuestionIndex];
-  document.getElementById('question-text').innerHTML = `\\(${q.question.replace("^2", "^{2}")}\\) =`;
+  document.getElementById('question-text').innerHTML = `${q.question} =`;
   document.getElementById('answer-input').value = answers[currentQuestionIndex] || '';
   document.getElementById('back-button').style.display = currentQuestionIndex > 0 ? 'inline-block' : 'none';
 
