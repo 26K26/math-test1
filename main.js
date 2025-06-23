@@ -6,6 +6,9 @@ for (let i = 1; i <= 20; i++) {
     answer: i.toString()
   });
 }
+
+quizData.sort(() => Math.random() - 0.5);
+
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbzaEbohb33NPS8iYg8YmCB46xcd99OwvjuV28EUXt9elnQ7DTzaFJkcmF8r0ez_BIXEZQ/exec';
 
 let currentQuestionIndex = 0;
